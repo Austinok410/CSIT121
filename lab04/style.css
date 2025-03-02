@@ -1,0 +1,20 @@
+body {
+    background-image: url(images/background.webp);
+}
+
+p {
+    font-family: Verdana;
+}
+
+h1 {
+    font-family: Gill Sans;
+    text-align: center;
+}
+
+h2 {
+    font-family: fantasy;
+}
+
+a:hover{
+    color: white;
+}
