@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read XML data with JavaScript (toggle version)</title>
+
+  <!-- CSS -->
+  <style>
+    table { border-collapse:collapse; width:100%; }
+    th, td { text-align:left; padding:8px; }
+    tr:nth-child(even) { background:#8a9aa6; }
+    th { background:#b69b8e; color:#fff; }
+
+    .button {
+      position:relative; text-align:center; padding:20px;
+      border:4px solid #618073; background:#e0c8b7; color:#000;
+      border-radius:30px; font-size:30px; width:500px; cursor:pointer;
+    }
+    .button:hover { background:#fff; }
+
+    body{
+      text-align: center;
+    }
+
+    /* hide table when not in use */
+    #empTable[data-visible="false"] { display:none; }
+  </style>
+
+  <!--JavaScript-->
+  <script>
+    let tableMarkup = "";        // cache for the generated table
+    let dataVisible = false;     // tracking flag
+
+    function toggleEmployeeData() {
+      if (!dataVisible) {        // currently hidden → show it
+        if (tableMarkup === "") {
+          fetchAndBuildTable();
+        } else {
+          showTable();
+        }
+      } else {                   // currently shown → hide it
+        hideTable();
+      }
+    }
+
+    /* Fetch XML once, build HTML, then show it */
+    function fetchAndBuildTable() {
+      const req = new XMLHttpRequest();
+      req.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          buildTable(this);
+          showTable();
+        }
+      };
+      req.open("GET", "employee.xml", true);
+      req.send();
+    }
+
+    function buildTable(xml) {
+      const xmlDoc = xml.responseXML;
+      let html =
+        `<tr><th>Firstname</th><th>Lastname</th>
+           <th>Title</th><th>Division</th>
+           <th>Building</th><th>Room</th></tr>`;
+
+      const employees = xmlDoc.getElementsByTagName("employee");
+      for (let i = 0; i < employees.length; i++) {
+        html += `<tr>
+          <td>${employees[i].getElementsByTagName("firstname")[0].textContent}</td>
+          <td>${employees[i].getElementsByTagName("lastname")[0].textContent}</td>
+          <td>${employees[i].getElementsByTagName("title")[0].textContent}</td>
+          <td>${employees[i].getElementsByTagName("division")[0].textContent}</td>
+          <td>${employees[i].getElementsByTagName("building")[0].textContent}</td>
+          <td>${employees[i].getElementsByTagName("room")[0].textContent}</td>
+        </tr>`;
+      }
+      tableMarkup = html; // cache for later toggles
+    }
+
+    function showTable() {
+      document.getElementById("empTable").innerHTML = tableMarkup;
+      updateState(true);
+    }
+
+    function hideTable() {
+      document.getElementById("empTable").innerHTML = "";
+      updateState(false);
+    }
+
+    function updateState(visible) {
+      dataVisible = visible;
+      document.getElementById("empTable").dataset.visible = visible;
+      document.getElementById("toggleBtn").textContent =
+        visible ? "Close Employee Data" : "Get Employee Data";
+    }
+  </script>
+</head>
+<body>
+  
+    <button id="toggleBtn" class="button" onclick="toggleEmployeeData()">
+      Get Employee Data
+    </button>
+
+    <br><br>
+
+  
+  <table id="empTable" data-visible="false"></table>
+</body>
+</html>
