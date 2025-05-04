@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10: Standards Presentation How Page
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what.html">What is it?</a></li>
+        <li><a class="active" href="how.html">How is it used?</a></li>
+        <li><a href="why.html">Why is it important?</a></li>
+        <li><a href="sources.html">Sources</a></li>
+      </ul>
+
+      <h1>How is it used?</h1>
+
+      <p>The following is example of JSON and the same text being expressed as XML:
+        <br>
+        <br>
+       
+            {"menu": {
+                <br>
+                "id": "file",
+                <br>
+                "value": "File",
+                <br>
+                "popup": {
+                    <br>
+                  "menuitem": [
+                  <br>
+                    {"value": "New", "onclick": "CreateNewDoc()"},
+                    <br>
+                    {"value": "Open", "onclick": "OpenDoc()"},
+                    <br>
+                    {"value": "Close", "onclick": "CloseDoc()"}
+                    <br>
+                  ]
+                  <br>
+                }
+                <br>
+              }}
+              <br>
+              <br>
+              The same text expressed as XML:
+              <br>
+              <br>
+
+              &lt;menu id=&quot;file&quot; value=&quot;File&quot;&gt;
+              <br>
+  &lt;popup&gt;
+  <br>
+    &lt;menuitem value=&quot;New&quot;   onclick=&quot;
+    CreateNewDoc()&quot; /&gt;
+    <br>
+    &lt;menuitem value=&quot;Open&quot;  onclick=&quot;OpenDoc()&quot;  /&gt;
+    <br>
+    &lt;menuitem value=&quot;Close&quot; onclick=&quot;CloseDoc()&quot;   /&gt;
+    <br>
+  &lt;/popup&gt;
+  <br>
+&lt;/menu&gt;
+      </p>
+    
+</body>
+</html>
