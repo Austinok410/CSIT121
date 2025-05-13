@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e5e5f7;
+    opacity: 0.9;
+    background-image: radial-gradient(rgb(0, 0, 0, .9) 0.5px, #f3f3f3 0.5px);
+    background-size: 10px 10px;
+  }
+  
+  /* Style the header */
+  header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+  }
+  
+  /* Container for flexboxes */
+  main {
+    display: flex;
+  }
+  
+  /* Style the navigation menu */
+  nav {
+    flex: 1;
+    background: #ccc;
+    padding: 0px;
+    border: 1px solid black;
+  }
+  
+  /* Style the list inside the menu */
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li a {
+    display:block;
+    color: #000;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+
+  .active {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Style the content */
+  article {
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
+  }
+  
+  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    main {
+      flex-direction: column;
+    }
+  }
+
+  h3{
+text-align: center;
+  }
+  
+  /* Style the table */
+  table{
+    background-color: lightgrey;
+  }
+  
+  #S{
+    background-color: red;
+  }
+  
+  #A{
+    background-color: orange;
+  }
+  
+  #B{
+    background-color: yellow;
+  }
+  
+  #C{
+    background-color: green;
+  }
+  
+  #D{
+    background-color: blue;
+  }
+  
+  #E{
+    background-color: purple;
+  }
+
+  table, td, th {
+    border: solid black 1px;
+    border-collapse: collapse;
+    padding: 10px 10px 10px 10px;
+    margin: 5px;
+    
+  }
+
+  th{
+    background-color: darkgray;
+  }
+
+  td, th{
+    font-family: Helvetica;
+  }

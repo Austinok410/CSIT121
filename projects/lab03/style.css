@@ -1,0 +1,30 @@
+body {
+    background-color: lightyellow;
+    font-family: monospace;
+    color:skyblue;
+}
+
+h1 {
+    color: black;
+}
+
+p {
+    font-family: Tahoma;
+}
+
+a:hover {
+    color:crimson
+}
+
+.list {
+    color:purple;
+    text-align: justify;
+}
+
+#h2 {
+    color: darkorange;
+    font-family: Georgia;
+    border: 2px solid pink;
+    background-color: white;
+    text-align: center;
+}
